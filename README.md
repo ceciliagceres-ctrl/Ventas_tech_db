@@ -10,6 +10,7 @@ El proyecto utiliza SQL para crear la estructura de la base de datos, establecer
 •	Establecer relaciones entre las entidades mediante claves primarias y foráneas.
 •	Aplicar restricciones para mantener la integridad de los datos.
 •	Realizar consultas SQL para recuperar y analizar información.
+Diseñar una estructura de base de datos que reduzca redundancia y evite inconsistencias.
 🗄️ Modelo de datos
 La base de datos se denomina ventas_tech_db y está compuesta por cuatro tablas principales:
 Tabla	Descripción
@@ -17,6 +18,7 @@ categorias	Almacena las categorías de productos tecnológicos.
 clientes	Contiene los datos personales y de registro de los clientes.
 productos	Registra los productos, sus precios, categorías y stock.
 ventas	Almacena las operaciones comerciales realizadas.
+La tabla ventas es la tabla de hecho y recomendaría realizar un mearge para la tabla categoría
 Relaciones entre tablas
 •	Cada producto pertenece a una categoría.
 •	Cada venta está asociada a un cliente.
@@ -24,19 +26,12 @@ Relaciones entre tablas
 •	Las relaciones se implementan mediante claves foráneas (FOREIGN KEY).
 Diagrama conceptual
 text
-       CATEGORIAS
-           |
-           | 1:N
-           |
-       PRODUCTOS
-           |
-           | 1:N
-           |
-         VENTAS
-           |
-           | N:1
-           |
-        CLIENTES
+CATEGORIAS (1) ───── (N) PRODUCTOS
+
+PRODUCTOS  (1) ───── (N) VENTAS
+
+CLIENTES   (1) ───── (N) VENTAS
+
 🛠️ Tecnologías y herramientas utilizadas
 •	SQL: lenguaje utilizado para crear, modificar, consultar y administrar la base de datos.
 •	Microsoft SQL Server: motor de base de datos compatible con los tipos de datos y las instrucciones utilizadas en el proyecto.
